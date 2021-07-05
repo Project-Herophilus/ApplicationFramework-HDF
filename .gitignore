@@ -1,3 +1,4 @@
+
 # Compiled class file
 *.class
 
@@ -15,7 +16,6 @@
 *.war
 *.nar
 *.ear
-*.zip
 *.tar.gz
 *.rar
 
@@ -297,3 +297,6 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# IntelliJ idea directory exclusion
+/.idea/
