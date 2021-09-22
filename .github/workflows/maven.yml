@@ -10,20 +10,16 @@ on:
     branches: [ main ]
 
 jobs:
+  jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup Java
-    - uses: actions/setup-java@v2
-      with:
-       java-version: '11'
-       distribution: 'adopt'
-    - name: Maven Build package
-    - run: mvn --batch-mode --update-snapshots verify
-    - name: Copy Build File for usage
-    - run: mkdir staging && cp target/*.jar staging
-    - uses: actions/upload-artifact@v2
-      with:
-       name: Package
-       path: staging
+      - uses: actions/checkout@v2
+      - name: Set up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+          distribution: 'adopt'
+      - name: Build with Maven
+        run: mvn --batch-mode --update-snapshots verify
