@@ -6,7 +6,7 @@
 
     <groupId>io.connectedhealth_idaas.route</groupId>
     <artifactId>io.connectedhealth_idaas</artifactId>
-    <version>5.0.1-SNAPSHOT</version>
+    <version>5.0.2-SNAPSHOT</version>
     <name>iDAAS Route</name>
     <packaging>pom</packaging>
 
