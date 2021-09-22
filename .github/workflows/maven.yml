@@ -13,13 +13,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Setup Java
+    - name: Checkout Java
     - uses: actions/checkout@v2
+    - name: Setup Java
     - uses: actions/setup-java@v2
       with:
        java-version: '11'
        distribution: 'adopt'
+    - name: Maven Build package
     - run: mvn --batch-mode --update-snapshots verify
+    - name: Copy Build File for usage
     - run: mkdir staging && cp target/*.jar staging
     - uses: actions/upload-artifact@v2
       with:
