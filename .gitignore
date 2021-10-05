@@ -47,6 +47,9 @@ nbactions.xml
 nb-configuration.xml
 
 
+### VSCode ###
+.vscode
+
 ### Eclipse ###
 
 .metadata

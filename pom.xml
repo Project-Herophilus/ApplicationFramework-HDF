@@ -27,6 +27,7 @@
     
     <modules>
     	<module>iDaaS-Route-DataDist</module>
+      <module>DMN-IntelligentDataRouter</module>
     </modules>
 
     <profiles>
