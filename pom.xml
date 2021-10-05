@@ -28,6 +28,7 @@
     <modules>
     	<module>iDaaS-Route-DataDist</module>
       <module>DMN-IntelligentDataRouter</module>
+      <module>Quarkus-DMN-IntelligentDataRouter</module>
     </modules>
 
     <profiles>
