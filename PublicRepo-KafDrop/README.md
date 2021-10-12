@@ -245,7 +245,7 @@ The three files above can be supplied to a Docker instance in base-64-encoded fo
 
 ```sh
 docker run -d --rm -p 9000:9000 \
-    -e KAFKA_BROKERCONNECT=52.118.134.94:9094 \
+    -e KAFKA_BROKERCONNECT=192.168.1.243:9092 \
     obsidiandynamics/kafdrop
 ```
 #### Environment Variables
