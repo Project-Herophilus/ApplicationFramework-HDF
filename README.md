@@ -1,7 +1,5 @@
-# iDaaS-Route
-iDaaS-Route and Data Distribution is intended to be used for teams that want to be able to send healthcare events 
-around the platform to simplify implementations across teams, systems, cloud providers, or internally 
-within your healthcare business to support its needs. 
+# iDaaS-DREaM
+iDaaS-DREaM is intended to be a consistent place for data driven assets that leverage iDaaS data. Assets within this repository can include assets that do data routing, data transformation, data enrichment and many other data enablement activities.
 
 # Specific Route Accelerators
 
