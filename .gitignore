@@ -300,3 +300,7 @@ typings/
 
 # IntelliJ idea directory exclusion
 /.idea/
+/Camel-DMN-DataRouting/.idea
+/DMN-DataRouting/.idea
+/iDaaS-Route-DataDist/.idea
+
