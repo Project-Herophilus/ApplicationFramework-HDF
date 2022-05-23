@@ -1,4 +1,4 @@
-# FHIR-DataRouter
+# Node-FHIR-DataRouter
 
 The FHIR Data Router is designed as a Cloud Native very lightweight component that can pull data from a specific topic
 and drive it to various topics and/or FHIR centric resources.

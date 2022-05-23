@@ -26,9 +26,7 @@
     </properties>
     
     <modules>
-    	<module>iDaaS-Route-DataDist</module>
       <module>Camel-DMN-DataRouting</module>
-      <module>DMN-DataRouting</module>
     </modules>
 
     <profiles>

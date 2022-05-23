@@ -300,7 +300,11 @@ typings/
 
 # IntelliJ idea directory exclusion
 /.idea/
-/Camel-DMN-DataRouting/.idea
-/DMN-DataRouting/.idea
-/iDaaS-Route-DataDist/.idea
+/Camel-DMN-DataRouting/idaas-dream-demo/.idea
+/Camel-DMN-DataRouting/idaas-dream2-demo/.idea
+/Camel-DMN-DataRouting/idaas-dream-demo-rules/.idea
+/Camel-iDaaS-Route-DataDist/.idea
+/Node-FHIRBundleToResource-DataRouter/.idea
+
+
 
