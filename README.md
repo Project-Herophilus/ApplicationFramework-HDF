@@ -1,10 +1,18 @@
 # iDaaS-DREaM
-iDaaS-DREaM is intended to be a consistent place for data driven assets that leverage iDaaS data. Assets within this repository can include assets that do data routing, data transformation, data enrichment and many other data enablement activities.
+iDaaS-DREaM (Data Real Time Assets) stands for is intended to be a consistent place for data driven assets that 
+can be used for a variety of needs. This repository has several vastly different and unique technologies that are all used
+for one purpose, to provide innovative ways to process and leverage data.
 
-# Specific Route Accelerators
+Always remember our cloud first approach to everything we do: <br/>
 
-| Accelerator| Details |
-| :---      | :----   | 
-|FHIR-IntelligentDataRouter | Processing of data from FHIR to process data from bundles and route to needed services |
-|iDaaS-Route-DataDist | Camel Based application to do a java implementation of data routing via specific coding|
-|iDaaS-Route-PublicCloud | Camel based application that enables routing of events to several public clouds via public cloud vendors components|
+![iDaaS Data Flow - Detailed.png](https://github.com/Project-Herophilus/Project-Herophilus-Assets/blob/main/images/iDaaS-Platform/iDAAS-DataFlow.png)
+<br/>
+
+
+# Specifically Developed Accelerators
+
+| Accelerator                              | Details |
+|:-----------------------------------------|:----------------------------| 
+| [Camel DMN Routing]()                    | Camel based application that uses DMN based rules to dynamically route data. |
+| [Camel iDaaS RouteDataDist]()            | Camel Based application to do a java implementation of data routing. This example is a hard coded example. |
+| [Node-FHIRBundleToResource-DataRouter]() | Node based application that enables routing FHIR resource bundles to FHIR servers specific FHIR resource endpoints |
