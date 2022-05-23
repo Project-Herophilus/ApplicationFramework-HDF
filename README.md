@@ -5,7 +5,7 @@ for one purpose, to provide innovative ways to process and leverage data.
 
 Always remember our cloud first approach to everything we do: <br/>
 
-![iDaaS Data Flow - Detailed.png](https://github.com/Project-Herophilus/Project-Herophilus-Assets/blob/main/images/iDaaS-Platform/iDAAS-DataFlow.png)
+![iDaaS Data Flow - Detailed.png](https://github.com/Project-Herophilus/Project-Herophilus-Assets/blob/main/images/iDaaS-Platform/Implementations/Implementations-Gen-CloudAgnostic.png)
 <br/>
 
 
