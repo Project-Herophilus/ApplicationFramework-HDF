@@ -2,9 +2,10 @@
   "name": "aws",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,7 @@
   },
   "dependencies": {
     "aws-sdk": "^2.1186.0",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "mongodb": "^4.8.1"
   }
