@@ -1,0 +1,21 @@
+{
+  "name": "azure",
+  "version": "1.0.0",
+  "description": "https://github.com/Azure/azure-sdk-for-node https://github.com/aws/aws-sdk-js-v3#getting-started https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/ https://www.mongodb.com/docs/drivers/node/current/quick-start/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@azure/keyvault-keys": "^4.4.0",
+    "@azure/storage-blob": "^12.11.0",
+    "azure-keyvault": "^3.0.5",
+    "azure-sb": "^0.11.2",
+    "express": "^4.18.1",
+    "mongodb": "^4.8.1",
+    "nodemon": "^2.0.19"
+  }
+}

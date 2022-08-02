@@ -1,0 +1,17 @@
+{
+  "name": "gcp",
+  "version": "1.0.0",
+  "description": "https://github.com/Azure/azure-sdk-for-node https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli https://github.com/azure/azure-sdk-for-node#announcing-the-new-azure-sdk-for-javascript https://www.mongodb.com/docs/drivers/node/current/quick-start/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongodb": "^4.8.1",
+    "nodemon": "^2.0.19"
+  }
+}
