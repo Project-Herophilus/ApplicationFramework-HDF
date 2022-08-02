@@ -1,8 +1,8 @@
 const { Kafka } = require('kafkajs')
 const dotenv = require('dotenv');
-dotenv.config({path: ".env"})
+//dotenv.config({path: ".env"})
 
-const { KAFKA_USERNAME: username, KAFKA_PASSWORD: password } = process.env
+const { kafkaUserName: username, kafkaPassword: password } = process.env
 const sasl = username && password ? { username, password, mechanism: 'plain' } : null
 const ssl = !!sasl
 
@@ -10,7 +10,7 @@ const ssl = !!sasl
 // the environment variable KAFKA_BOOTSTRAP_SERVER
 const kafka = new Kafka({
   clientId: 'component-router',
-  brokers: [process.env.KAFKA_BOOTSTRAP_SERVER],
+  brokers: [process.env.kafkaBootStrapServer],
   ssl,
   sasl
 })

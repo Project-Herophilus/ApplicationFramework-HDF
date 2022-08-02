@@ -1,24 +1,32 @@
-# Node-FHIR-DataRouter
+# Node-Intelligent-DataRouter
 
-The FHIR Data Router is designed as a Cloud Native very lightweight component that can pull data from a specific topic
-and drive it to various topics and/or FHIR centric resources.
+The Node Intelligent Data Router is designed as a Cloud Native very lightweight component that can pull data from a specific topic
+and drive a few specific scenarios.
 
 # Settings
-The biggest thing to understand is that all settings for this are contained within a .env file. It is important to know
-that if you clone the repository the file  WILL NOT be included or created. You must manually create a .env file and
-the settings used are defined below.
+The biggest thing to understand is that all settings for this are demonstrated below and intended
+to be implemented as environment variables, all specific to the implementation. 
+
+The settings used are defined below, if you are using a Mac you can create a .sh file
+and run source<filename.sh> before starting this code in the same terminal space if needed.
 
 ```   
-# Database Tech
-database=mysql
-# Database Setting
-dbhost=hostname or ip
-dbuser=username
-dbpassword=password
-db=datasynthesis
+# Platform Settings
+export httpPort=8888
+export runQuantity=7500
+# Auditing
+export auditing=false
+export auditingTopicName=kic_appintgrtntransactions
 # Output
-outputadapter=File
-# Output Setting
+# values: kafka kafka-datapersistence file rdbms nosql
+export outputAdapter=kafka-datapersistence
+# Kafka Settings
+export kafkaServer=localhost:9092
+export kafkaBaseTopic= undefined
+export kafkaDefaultGroup=undefined
+export kafkaConsumerTopic= undefined
+export kafkaProduceTopic=undefined
+export kafkaClientID="1234"
 ```
 
 # Pre-Requisites
@@ -70,7 +78,7 @@ npm start
 
 Or, if you want to work with it locally and potentially enhance it then from the base project level type:
 ```
-nodemon consumer.js
+nodemon consumerURLRelay.js
 ```
 
 To access specific features there are set of ways these can be accessed.

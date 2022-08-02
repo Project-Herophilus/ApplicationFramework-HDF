@@ -2,10 +2,10 @@
   "name": "idaas-component-router",
   "version": "1.0.0",
   "description": "routes resources from entry components on fhir bundles to idaas components",
-  "main": "consumer.js",
+  "main": "consumerURLRelay.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node consumer.js"
+    "start": "node consumerURLRelay.js"
   },
   "repository": {
     "type": "git",
