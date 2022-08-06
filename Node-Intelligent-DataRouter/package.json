@@ -1,0 +1,22 @@
+{
+  "name": "idaas-component-router",
+  "version": "1.0.0",
+  "description": "routes resources from entry components on fhir bundles to idaas components",
+  "main": "consumerURLRelay.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node consumerURLRelay.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:anthem-cdp/iDaaS-Component-Router.git"
+  },
+  "author": "jbmyer94",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.4",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "kafkajs": "^1.15.0"
+  }
+}
