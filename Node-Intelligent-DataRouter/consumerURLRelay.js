@@ -2,7 +2,7 @@ const kafka = require('./kafka')
 const dotenv = require('dotenv')
 const routes = require('./routes-config');
 const axios = require('axios')
-const { Console } = require('console');
+const notify = require('./notifier')
 //const url = process.env.IDAAS_FHIR_URL;
 //dotenv.config({path: ".env"})
 const consumerURLRelay = kafka.consumer({
@@ -28,6 +28,8 @@ const main = async () => {
             if(route)
             {
                 axios.post(`${url}${route}`, resource.resource).then(resp=>{
+                sendMessage("Hello Alan, this is your conscious speaking",
+                "+16153369743", "12059648351")
                 console.log(resp)
                 })
             }

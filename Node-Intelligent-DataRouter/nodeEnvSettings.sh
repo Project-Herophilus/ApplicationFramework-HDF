@@ -14,3 +14,6 @@ export kafkaDefaultGroup=undefined
 export kafkaConsumerTopic= undefined
 export kafkaProduceTopic=undefined
 export kafkaClientID="1234"
+export twilioAccount='AC25abda01e920fb17fa15e65c88b35a97'
+export twilioToken='aa155cde0be0559340568f3a540f99ea'
+export twilioPhoneNumber='12059648351'
