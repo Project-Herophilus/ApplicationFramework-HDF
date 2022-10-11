@@ -1,0 +1,5 @@
+account=cerner_account
+secret=api_key
+tenant-id=tenant-uuid
+authserver=authentication.cerner.com:443
+fhir-server=fhir-ehr-code.cerner.com:443
