@@ -1,0 +1,126 @@
+# camel-k: language=yaml dependency=camel-base64 dependency=camel-file depenency=camel-netty-http
+
+- rest:      
+    path: "/docref"
+    binding-mode: auto
+    get:
+      - produces: "text/html"
+        steps:
+          - set-body:
+              constant: "<html><head><title>nobody here</title></head><body><h2>Nothing to see - use POST</h2></body></html>"
+          - to:
+              uri: log:info
+    post:
+      - produces: "application/json"
+        consumes: "application/json"
+        steps:
+          - multicast:
+              steps:
+                - to: "direct:stringlog"
+                - to: "direct:filelog"
+          - marshal:
+              json:
+                library: Jackson
+          - set-property:
+              name: data
+              simple: ${body}
+          - to: direct:auth
+          - set-property:
+              name: token
+              jsonpath: $.access_token
+          - choice:
+              when:
+                - simple: ${exchangeProperty.token.length} > 0
+                  steps:
+                    - to: direct:process
+              otherwise:
+                steps:
+                  - transform:
+                      constant: '{"error":"CERNER Authentication failed"}'
+- from:
+    uri: direct:stringlog
+    steps:
+        - convert-body-to: 
+            type: String
+        - to:
+            uri: kamelet:log-sink?showStreams=true
+- from:
+    uri: direct:filelog
+    steps:
+        - convert-body-to: 
+            type: String
+        - to: 
+            uri: "file:cernerdata/?fileName=data-${date:now:yyMMdd-HHMMss}.json"
+- from:
+    uri: direct:auth
+    steps:
+      - set-body:
+          constant: "{{account}}:{{secret}}"
+      - marshal:
+          base64:
+            line-length: 0
+            id: b64auth
+      - remove-headers:
+          pattern: "*"
+      - set-header:
+          name: auth 
+          simple: "${body}"
+      - transform:
+          constant: 'grant_type=client_credentials&scope=system/DocumentReference.write system/DocumentReference.read'
+      - set-header:
+          name: CamelHttpMethod
+          expression:
+            constant: POST
+      - set-header:
+          name: Accept
+          expression:
+            constant: "application/json"
+      - set-header:
+          name: "Authorization"
+          simple: "Basic ${header.auth}"
+      - remove-headers:
+          pattern: "auth"
+      - set-header:
+          name: "Content-Type"
+          expression:
+            constant: "application/x-www-form-urlencoded"
+      - set-header:
+          name: "cache-control"
+          expression:
+            constant: "no-cache"
+      - to: 
+          uri: "netty-http:https://{{authserver}}/tenants/{{tenant-id}}/protocols/oauth2/profiles/smart-v1/token?throwExceptionOnFailure=false&traceEnabled=true&keepAlive=false"
+          pattern: "InOut"
+      - to: kamelet:log-sink?showHeaders=true
+- from:
+    uri: direct:process
+    steps:
+      - log: "Yay - Authenticated"
+      - remove-headers:
+          pattern: "*"
+      - set-body:
+          simple: ${exchangeProperty.data}
+      - to: 
+          uri: "log:info?multiline=true&showAll=true"
+      - set-header:
+          name: "Authorization"
+          expression:
+            simple: "Bearer ${exchangeProperty.token}"
+      - set-header:
+          name: "CamelHttpMethod"
+          expression:
+            constant: POST
+      - set-header:
+          name: "Content-Type"
+          expression:
+            constant: "application/json"
+      - set-header:
+          name: "Accept"
+          expression:
+            constant: "application/json"
+      - to:
+          uri: "netty-http:https://{{fhir-server}}/r4/{{tenant-id}}/DocumentReference?hostnameVerification=true&traceEnabled=true&throwExceptionOnFailure=false"
+      - to: 
+          uri: "log:info?multiline=true&showAll=true"
+      - set-body:
+          simple: '{"status":"completed","cerner-response":"${body}"}'
