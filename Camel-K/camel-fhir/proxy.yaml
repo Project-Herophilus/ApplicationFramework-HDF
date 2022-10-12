@@ -1,0 +1,33 @@
+# camel-k: language=yaml
+
+- rest:
+    binding-mode: auto
+    get: 
+      - uri: "/get/{category}/{id}"
+        api-docs: true
+        produces: "application/fhir+json"  
+        steps:
+          - tod: "fhir:read/resourceById?resourceClass=${header.category}&stringId=${header.id}&serverUrl={{fhirserverURL}}&encoding=JSON&fhirVersion=R4"
+          - to: direct:output
+      - uri: "/capabilities"
+        api-docs: true
+        produces: "application/fhir+json"
+        steps:
+          - to: "fhir:meta/getFromServer?metatype=MetaType.class&serverUrl={{fhirserverURL}}&encoding=JSON&fhirVersion=R4"
+          - to: direct:output
+
+- from: 
+    uri: direct:output
+    steps:
+      - marshal:
+          fhir-json:
+            fhir-version: R4
+            pretty-print: false
+      - to: log:info?showAll=true
+
+- from: 
+    uri: direct:auth
+    steps:
+      - to: log:debug
+
+    
