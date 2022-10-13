@@ -1,0 +1,13 @@
+# camel-k: language=yaml dependency=camel-fhir dependency=camel-hl7
+
+- from:
+    uri: "timer:yaml"
+    parameters:
+      period: "5000"
+    steps:
+      - to: fhir:read/resourceById?resourceClass=Patient&stringId=1&serverUrl={{fhirserverURL}}&fhirVersion=R4&encoding=JSON
+      - marshal: 
+          fhir-json:
+            fhir-version: R4
+            pretty-print: false
+      - to: log:info?showAll=true
