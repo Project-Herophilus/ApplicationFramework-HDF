@@ -12,6 +12,8 @@ router.get("/notification-email", async(req, res) => {
 });
 
 router.get("/notification-sms", async(req, res) => {
+    msg = "Test SMS"
+    to = "6153369743"
     client.messages
         .create({
             body: msg,

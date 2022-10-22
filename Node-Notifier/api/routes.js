@@ -3,6 +3,7 @@ var express = require('express');
 const router = express.Router();
 // Constants
 const notificationcontroller = require("./notifications");
+router.use('/api/notify', notificationcontroller)
 /*const dataegeneratedcontroller = require("./querydata/datagenerated.controller");
 const datamodelcontroller = require("./querydata/datamodel.controller");
 const hl7controller = require("./industrystds/hl7.controller");
