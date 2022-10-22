@@ -37,16 +37,14 @@
     "moment": "^2.29.0",
     "moment-timezone": "^0.5.31",
     "morgan": "~1.9.1",
-    "mssqlserver": "0.0.2",
-    "mysql": "^2.18.1",
+    "nodemailer": "^6.8.0",
     "npm": "^8.7.0",
     "pg": "^8.7.1",
     "postgresql": "^0.0.1",
     "randexp": "^0.5.3",
     "random": "^3.0.3",
-    "snowflake": "^0.1.2",
-    "snowflake-sdk": "^1.6.11",
     "tedious": "^14.3.0",
+    "twilio": "^3.82.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
