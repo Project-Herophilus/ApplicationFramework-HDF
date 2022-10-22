@@ -2,7 +2,7 @@ const kafka = require('./kafka')
 const dotenv = require('dotenv')
 const routes = require('./routes-config');
 const axios = require('axios')
-const notify = require('./notifier')
+const notify = require('./notifier-sms')
 //const url = process.env.IDAAS_FHIR_URL;
 //dotenv.config({path: ".env"})
 const consumerURLRelay = kafka.consumer({
