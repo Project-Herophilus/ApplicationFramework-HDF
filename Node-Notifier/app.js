@@ -9,23 +9,23 @@ const bodyParser = require('body-parser')
 
 var port = process.env.http_port //|| 3002;
 //need to invoke config functions to store all configuration necessary in memory at start up or refresh 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(function (req, res, next) {
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({ extended: false }));
+//app.use(function (req, res, next) {
     /*var err = new Error('Not Found');
      err.status = 404;
      next(err);*/
      // Website you wish to allow to connect
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    //res.setHeader('Access-Control-Allow-Origin', '*');
     // Request methods you wish to allow
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+    //res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
     // Request headers you wish to allow
-    res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, ' +
-        'X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,' +
-        'X-Access-Token,XKey,Authorization');
-    res.setHeader('Content-Type', 'application/json; charset=utf-8')
-    next();
-  });
+    //res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, ' +
+    //    'X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,' +
+    //    'X-Access-Token,XKey,Authorization');
+    //res.setHeader('Content-Type', 'application/json; charset=utf-8')
+    //next();
+//  });
 app.use('/', api);
 
 const server = app.listen(port, function () {
