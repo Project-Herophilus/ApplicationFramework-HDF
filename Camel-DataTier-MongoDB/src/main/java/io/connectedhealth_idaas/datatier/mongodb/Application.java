@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Red Hat, Inc.
+ * Copyright 2019 Project-Herophilus
  * <p>
  * Red Hat licenses this file to you under the Apache License, version
  * 2.0 (the "License"); you may not use this file except in compliance
@@ -14,22 +14,14 @@
  * permissions and limitations under the License.
  *
  */
-package io.connectedhealth_idaas.route;
+package io.connectedhealth_idaas.datatier.mongodb;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SuppressWarnings("ConfigurationProperties")
-@ConfigurationProperties(prefix = "idaas")
-public class ConfigProperties {
-
-    private String kafkaBrokers;
-
-    public String getKafkaBrokers() {
-        return kafkaBrokers;
+@SpringBootApplication
+public class Application {
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
     }
-
-    public void setKafkaBrokers(String kafkaBrokers) {
-        this.kafkaBrokers = kafkaBrokers;
-    }
-
 }

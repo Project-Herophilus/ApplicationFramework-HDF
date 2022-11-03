@@ -40,7 +40,7 @@ router.get("/notification-sms", async (req, res) => {
             from: process.env.twilioPhoneNumber
         })
         .then(message=> {
-            auditMessage ="Event: "+ event +"sent on: " +year + "-" + month + "-" + date+ " at: " +hour +":"+minutes + " "
+            auditMessage ="Event: "+ event +" sent on: " +year + "-" + month + "-" + date+ " at: " +hour +":"+minutes + " "
                 +message.sid;
 
             return auditMessage;
