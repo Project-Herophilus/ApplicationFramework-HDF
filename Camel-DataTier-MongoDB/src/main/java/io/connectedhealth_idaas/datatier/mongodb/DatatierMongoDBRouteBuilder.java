@@ -77,7 +77,7 @@ public class DatatierMongoDBRouteBuilder extends RouteBuilder {
                     .to("micrometer:counter:datatierpersist_DataBricks_Transactions")
                 .when(simple("{{idass.persist.MongoDB}}"))
                     .to("micrometer:counter:datatierpersist_MongoDB_Transactions")
-                    .to("{{datatier.mongodb}}"+"&operation=insert")
+                    .to("mongodb:{{datatier.mongodb}}"+"&operation=insert")
                     .setBody(simple("${body}"));
                 .when(simple("{{idass.persist.SnowFlake}}"))
                     .to("micrometer:counter:datatierpersist_SnowFlake_Transactions")
@@ -92,7 +92,7 @@ public class DatatierMongoDBRouteBuilder extends RouteBuilder {
                     .to("micrometer:counter:datatierpersistfindby_DataBricks_Transactions")
                 .when(simple("{{idass.persist.MongoDB}}"))
                     .to("micrometer:counter:datatierpersistfindby_MongoDB_Transactions")
-                    .to("{{datatier.mongodb}}"+"&operation=findById")
+                    .to("mongodb:{{datatier.mongodb}}"+"&operation=findById")
                 .setBody(simple("${body}"));
                 .when(simple("{{idass.persist.SnowFlake}}"))
                     .to("micrometer:counter:datatierpersistfindby_SnowFlake_Transactions")
