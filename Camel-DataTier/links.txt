@@ -1,0 +1,1 @@
+https://github.com/apache/camel-examples/blob/main/examples/mongodb/src/main/java/org/apache/camel/example/mongodb
