@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.datatier.mongodb;
+package io.connectedhealth_idaas.datatier;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.LoggingLevel;

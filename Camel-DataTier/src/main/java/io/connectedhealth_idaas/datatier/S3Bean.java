@@ -1,4 +1,4 @@
-package io.connectedhealth_idaas.datatier.mongodb;
+package io.connectedhealth_idaas.datatier;
 
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
