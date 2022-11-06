@@ -27,7 +27,7 @@ Specific accelerators that are created using Java.
 
 | Accelerator                              | Details |
 |:-----------------------------------------|:----------------------------| 
-|[Java OMOP Persistence](https://github.com/Project-Herophilus/iDaaS-DREaM/tree/main/Java-OMap-DataPersistence)|A set of Java developed assets that process healthcare data into the OMOP Industry Std.|
+|[Java OMOP Persistence](https://github.com/Project-Herophilus/iDaaS-DREaM/tree/main/Java-OMOP-DataPersistence)|A set of Java developed assets that process healthcare data into the OMOP Industry Std.|
 
 ## Node Based Accelerators
 Specific accelerators that are created using Node.
