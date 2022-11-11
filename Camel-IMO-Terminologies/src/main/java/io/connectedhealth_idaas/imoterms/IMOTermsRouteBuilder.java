@@ -33,9 +33,59 @@ public class IMOTermsRouteBuilder extends RouteBuilder {
         mapping.addUrlMappings("/idaas/*");
         return mapping;
     }
+    // Public Variables
+    public static final String TERMINOLOGY_ROUTE_ID = "terminologies-direct";
+    public static final String DEIDENTIFICATION_ROUTE_ID = "deidentification-direct";
+    public static final String EMPI_ROUTE_ID = "empi-direct";
+    public static final String DATATIER_ROUTE_ID = "datatier-direct";
+    public static final String HEDA_ROUTE_ID = "heda-direct";
+    public static final String PUBLICCLOUD_ROUTE_ID = "publiccloud-direct";
+    public static final String SDOH_ROUTE_ID = "sdoh-direct";
 
     @Override
     public void configure() throws Exception {
+
+        onException(Exception.class)
+                .handled(true)
+                .log(LoggingLevel.ERROR,"${exception}")
+                .to("micrometer:counter:rest_exception_handled")
+                .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.TEXT_PLAIN_VALUE))
+                .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(500))
+                .setBody(simple("${exception}"));
+        /*
+         *   Direct Internal Processing
+         */
+        from("direct:terminologies")
+                .choice()
+                .when(simple("{{idaas.process.Terminologies}}"))
+                .routeId(TERMINOLOGY_ROUTE_ID)
+                .to("log:" + TERMINOLOGY_ROUTE_ID + "?showAll=true")
+                //.log("${exchangeId} fully processed")
+                .to("micrometer:counter:terminologyTransactions")
+                // Partner REST API Integration
+                // .to("kafka:{{idaas.iot.integration.topic}}?brokers={{idaas.kafka.brokers}}")
+        .endChoice();
+
+        // Kafka Topic
+        from("kafka:{{idaas.terminology.topic.name}}?brokers={{idaas.kafka.brokers}}")
+                // Aspects of platform invocation
+                .to("direct:terminologies")
+        ;
+
+        // Rest APIs
+        restConfiguration()
+                .component("servlet");
+
+        rest("/imo-terms")
+                .post()
+                .produces(MediaType.TEXT_PLAIN_VALUE)
+                .route()
+                .routeId(IOT_ROUTE_ID)
+                .to("log:"+ IOT_ROUTE_ID + "?showAll=true")
+                .log("${exchangeId} fully processed")
+                .to("micrometer:counter:imoterminologyEventReceived")
+                .to("direct:terminologies")
+                .endRest();
 
         /*
          *  File Processing
@@ -47,11 +97,6 @@ public class IMOTermsRouteBuilder extends RouteBuilder {
         ;*/
 
 
-
-
-        // Kafka Topic
-        from(getKafkaTopicUri("{{idaas.cloudTopic}}"))
-        ;
 
     }
 }

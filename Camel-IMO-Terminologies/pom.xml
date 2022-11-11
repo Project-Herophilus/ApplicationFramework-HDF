@@ -91,24 +91,6 @@
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
         </dependency>
-        <!-- Third Party JDBC Drivers -->
-        <!-- <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>net.snowflake</groupId>
-            <artifactId>snowflake-jdbc</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mongodb</groupId>
-            <artifactId>mongo-java-driver</artifactId>
-        </dependency> -->
-        <dependency>
-            <groupId>com.ibm.db2</groupId>
-            <artifactId>jcc</artifactId>
-        </dependency>
-
         <!-- iDaaS Event Builder -->
         <dependency>
             <groupId>io.connectedhealth-idaas</groupId>
