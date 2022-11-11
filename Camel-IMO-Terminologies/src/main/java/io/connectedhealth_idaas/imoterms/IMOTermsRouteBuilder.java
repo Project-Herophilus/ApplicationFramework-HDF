@@ -2,6 +2,8 @@ package io.connectedhealth_idaas.imoterms;
 
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
+import org.apache.camel.Exchange;
+import org.springframework.http.MediaType;
 import org.apache.camel.ExchangePattern;
 import org.apache.camel.component.servlet.CamelHttpTransportServlet;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +19,6 @@ import java.util.Collections;
 @Component
 public class IMOTermsRouteBuilder extends RouteBuilder {
 
-
     @Bean
     ServletRegistrationBean camelServlet() {
         // use a @Bean to register the Camel servlet which we need to do
@@ -31,12 +32,7 @@ public class IMOTermsRouteBuilder extends RouteBuilder {
     }
     // Public Variables
     public static final String TERMINOLOGY_ROUTE_ID = "terminologies-direct";
-    public static final String DEIDENTIFICATION_ROUTE_ID = "deidentification-direct";
-    public static final String EMPI_ROUTE_ID = "empi-direct";
-    public static final String DATATIER_ROUTE_ID = "datatier-direct";
-    public static final String HEDA_ROUTE_ID = "heda-direct";
-    public static final String PUBLICCLOUD_ROUTE_ID = "publiccloud-direct";
-    public static final String SDOH_ROUTE_ID = "sdoh-direct";
+    public static final String IMOTERMS_ID = "imoterms-inbound";
 
     @Override
     public void configure() throws Exception {
@@ -73,16 +69,17 @@ public class IMOTermsRouteBuilder extends RouteBuilder {
                 .component("servlet");
 
         rest("/imo-terms")
-                .post()
+                .post("/termprocessor")
                 .produces(MediaType.TEXT_PLAIN_VALUE)
                 .route()
-                .routeId(IOT_ROUTE_ID)
-                .to("log:"+ IOT_ROUTE_ID + "?showAll=true")
+                .routeId(IMOTERMS_ID)
+                .to("log:"+ IMOTERMS_ID + "?showAll=true")
+                .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.APPLICATION_JSON_VALUE))
                 .log("${exchangeId} fully processed")
                 .to("micrometer:counter:imoterminologyEventReceived")
                 .to("direct:terminologies")
-                .endRest();
-
+                .endRest()
+        ;
         /*
          *  File Processing
          */

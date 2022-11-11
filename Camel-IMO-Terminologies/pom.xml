@@ -1,27 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>io.connectedhealth_idaas</groupId>
-    <artifactId>camel-imo-terminologies</artifactId>
-    <version>3.9.7-SNAPSHOT</version>
-    <name>Camel IMO Terminologies</name>
-    <packaging>pom</packaging>
-    <!--
+    <artifactId>Camel-IMO-Terminologies</artifactId>
     <parent>
         <groupId>io.connectedhealth_idaas</groupId>
-        <artifactId>idaas-connect</artifactId>
-        <version>3.9.7-SNAPSHOT</version>
+        <artifactId>idaas-dream</artifactId>
+        <version>2.9-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    -->
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <fuse.bom.version>7.10.0.fuse-sb2-7_10_2-00011-redhat-00002</fuse.bom.version>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -105,11 +91,28 @@
             <groupId>jakarta.xml.bind</groupId>
             <artifactId>jakarta.xml.bind-api</artifactId>
         </dependency>
+        <!-- Third Party JDBC Drivers -->
+        <!-- <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>net.snowflake</groupId>
+            <artifactId>snowflake-jdbc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mongodb</groupId>
+            <artifactId>mongo-java-driver</artifactId>
+        </dependency> -->
+        <dependency>
+            <groupId>com.ibm.db2</groupId>
+            <artifactId>jcc</artifactId>
+        </dependency>
+
         <!-- iDaaS Event Builder -->
         <dependency>
             <groupId>io.connectedhealth-idaas</groupId>
             <artifactId>idaas-eventbuilder</artifactId>
-            <version>2.3.0</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback.contrib</groupId>
@@ -148,4 +151,3 @@
         </plugins>
     </build>
 </project>
-
