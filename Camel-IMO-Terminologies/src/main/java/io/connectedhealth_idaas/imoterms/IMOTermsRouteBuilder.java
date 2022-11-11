@@ -3,10 +3,6 @@ package io.connectedhealth_idaas.imoterms;
 import org.apache.camel.LoggingLevel;
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.ExchangePattern;
-import org.apache.camel.component.aws.kinesis.KinesisConstants;
-import org.apache.camel.component.aws.s3.S3Constants;
-import org.apache.camel.component.aws.ses.SesConstants;
-import org.apache.camel.component.aws.sns.SnsConstants;
 import org.apache.camel.component.servlet.CamelHttpTransportServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -48,7 +44,7 @@ public class IMOTermsRouteBuilder extends RouteBuilder {
         onException(Exception.class)
                 .handled(true)
                 .log(LoggingLevel.ERROR,"${exception}")
-                .to("micrometer:counter:rest_exception_handled")
+                .to("micrometer:counter:terminology_exception_handled")
                 .setHeader(Exchange.CONTENT_TYPE, constant(MediaType.TEXT_PLAIN_VALUE))
                 .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(500))
                 .setBody(simple("${exception}"));

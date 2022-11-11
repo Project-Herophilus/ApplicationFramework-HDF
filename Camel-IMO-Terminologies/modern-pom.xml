@@ -109,7 +109,6 @@
         <dependency>
             <groupId>io.connectedhealth-idaas</groupId>
             <artifactId>idaas-eventbuilder</artifactId>
-            <version>2.3.0</version>
         </dependency>
         <dependency>
             <groupId>ch.qos.logback.contrib</groupId>
@@ -148,4 +147,3 @@
         </plugins>
     </build>
 </project>
-
