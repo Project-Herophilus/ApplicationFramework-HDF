@@ -23,10 +23,10 @@ mapping tool and also the runtime engine.
 # Sample Projects
 Below are some sample projects.
 
-| Project Name    | Description                    | 
-|-----------------|--------------------------------| 
-| [ADT]()         | Sample Simple ADT Data Mapping |
-| [HL7 to JSON]() | Sample AFT to Patient JSON Mapping|
+| Project Name                                                                                                  | Description                    | 
+|---------------------------------------------------------------------------------------------------------------|--------------------------------| 
+| [ADT](https://github.com/Project-Herophilus/iDaaS-DREaM/tree/main/maps-tracefinancial/ADT)                    | Sample Simple ADT Data Mapping |
+| [HL7 to JSON](https://github.com/Project-Herophilus/iDaaS-DREaM/tree/main/maps-tracefinancial/HL7ToPtRecords) | Sample AFT to Patient JSON Mapping|
 
 # Implementating this Module
 The following section is designed to cover the details around implementing.
