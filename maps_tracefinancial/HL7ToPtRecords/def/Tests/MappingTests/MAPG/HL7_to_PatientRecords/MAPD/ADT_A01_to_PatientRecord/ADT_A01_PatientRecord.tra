@@ -1,0 +1,20 @@
+<Prolog>
+    <LastModification>
+        <Transformer>
+            <Program>Test Definition Form</Program>
+            <VersionNumber>3.8.4</VersionNumber>
+            <BuildNumber>37</BuildNumber>
+        </Transformer>
+        <User>paulr</User>
+        <Host>tf-paulr-lt</Host>
+        <Timestamp>28/10/2022 20:59:53</Timestamp>
+        <Checksum>b51dc773</Checksum>
+    </LastModification>
+</Prolog>
+<MappingTestDefinition name="ADT_A01_PatientRecord"
+    testSuiteName="MappingTests" group="Map:HL7_to_PatientRecords"
+    testerReference="AdvancedTest" target="ADT_A01_to_PatientRecord">
+    <Property name="OutputType" type="option">
+        <Value>Raw</Value>
+    </Property>
+</MappingTestDefinition>

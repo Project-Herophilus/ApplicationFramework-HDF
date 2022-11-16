@@ -1,0 +1,17 @@
+<Prolog>
+    <LastModification>
+        <Transformer>
+            <Program>Rename File Action</Program>
+            <VersionNumber>3.8.4</VersionNumber>
+            <BuildNumber>37</BuildNumber>
+        </Transformer>
+        <User>paulr</User>
+        <Host>tf-paulr-lt</Host>
+        <Timestamp>28/10/2022 20:57:29</Timestamp>
+        <Checksum>4eceac25</Checksum>
+    </LastModification>
+</Prolog>
+<MessageDefinitionGroup name="HealthcareSystem" template="JSON">
+    <DefaultParser/>
+    <MessageTypeIdentification/>
+</MessageDefinitionGroup>

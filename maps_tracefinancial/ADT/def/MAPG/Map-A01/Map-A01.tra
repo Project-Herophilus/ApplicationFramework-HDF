@@ -1,0 +1,16 @@
+<Prolog>
+    <LastModification>
+        <Transformer>
+            <Program>NewSimpleMappingDefinition</Program>
+            <VersionNumber>3.8.4</VersionNumber>
+            <BuildNumber>37</BuildNumber>
+        </Transformer>
+        <User>alscott</User>
+        <Host>alscott-mac</Host>
+        <Timestamp>31/10/2022 10:42:43</Timestamp>
+        <Checksum>a28843e0</Checksum>
+    </LastModification>
+</Prolog>
+<MappingDefinitionGroup name="Map-A01" MessageDefinitionGroupA="HL7_v24" MessageDefinitionGroupB="HL7_v24">
+    <PDG_Basis/>
+</MappingDefinitionGroup>
