@@ -33,9 +33,10 @@ public class PublicCloudRouteBuilder extends RouteBuilder {
         mapping.addUrlMappings("/idaas/*");
         return mapping;
     }
-    private String getAWSConfig(String awsInput)
+   private String getAWSConfig(String awsInput)
     {
-        String awsSecuritySettings= awsInput+"accessKey=RAW("+config.getAwsAccessKey()+")&secretKey=RAW("+config.getAwsSecretKey()+")";
+        //String awsSecuritySettings= awsInput+"accessKey=RAW("+config.getAwsAccessKey()+")&secretKey=RAW("+config.getAwsSecretKey()+")";
+        String awsSecuritySettings= awsInput+"accessKey=RAW("{{awsAccessKey}}+")&secretKey=RAW("+ {{awsSecretKey}}";
         return awsSecuritySettings;
     }
 
@@ -46,17 +47,17 @@ public class PublicCloudRouteBuilder extends RouteBuilder {
         from("servlet://test_publiccloud")
                 .routeId("test_http_cloud")
                 // set Auditing Properties
-                .convertBodyTo(String.class).to(getKafkaTopicUri("{{idaas.test_cloudTopic}}"))
+                .to("kafka:{{idaas.test_cloud.topic.name}}?brokers={{idaas.kafka.brokers}}")
         ;
 
         from("servlet://publiccloud")
                 .routeId("http_cloud")
                 // Send To Topic
-                .convertBodyTo(String.class).to(getKafkaTopicUri("{{idaas.cloudTopic}}"))
+                .to("kafka:{{idaas.cloud.topic.name}}?brokers={{idaas.kafka.brokers}}")
         ;
 
         // Kafka Topic
-        from(getKafkaTopicUri("{{idaas.cloudTopic}}"))
+        from("kafka:{{idaas.cloud.topic.name}}?brokers={{idaas.kafka.brokers}}")
                 .routeId("Cloud-Kafka-Topic")
                 // Send To S3
                 // S3 Specifics
