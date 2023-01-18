@@ -33,12 +33,12 @@ public class PublicCloudRouteBuilder extends RouteBuilder {
         mapping.addUrlMappings("/idaas/*");
         return mapping;
     }
-   private String getAWSConfig(String awsInput)
+   /*private String getAWSConfig(String awsInput)
     {
-        //String awsSecuritySettings= awsInput+"accessKey=RAW("+config.getAwsAccessKey()+")&secretKey=RAW("+config.getAwsSecretKey()+")";
-        String awsSecuritySettings= awsInput+"accessKey=RAW("{{awsAccessKey}}+")&secretKey=RAW("+ {{awsSecretKey}}";
+        String awsSecuritySettings= awsInput+"accessKey=RAW("+config.getAwsAccessKey()+")&secretKey=RAW("+config.getAwsSecretKey()+")";
+        //String awsSecuritySettings= awsInput+"accessKey=RAW("{{awsAccessKey}}+")&secretKey=RAW("+ {{awsSecretKey}}";
         return awsSecuritySettings;
-    }
+    }*/
 
     @Override
     public void configure() throws Exception {
@@ -62,36 +62,33 @@ public class PublicCloudRouteBuilder extends RouteBuilder {
                 // Send To S3
                 // S3 Specifics
                 .choice().when(simple("{{idaas.awsS3}}"))
-                .setHeader(S3Constants.KEY, simple("${exchangeId}"+".dat"))
-                .to("aws2-s3://testhealthcarebucket")
-                //.wireTap("direct:logging")
-                // Send to AMQ
-                .choice().when(simple("{{idaas.awsMQ}}"))
-                //.to(ExchangePattern.InOnly, "amqp:topic:myHealthcareTopic?connectionFactory=#jmsConnectionFactory")
-                .to(ExchangePattern.InOnly, "amqp:queue:myHealthcareQueue?connectionFactory=#jmsConnectionFactory")
+                    .setHeader(S3Constants.KEY, simple("${exchangeId}"+".dat"))
+                    //.to("aws-s3://public-idaas?accessKey={{aws.access.key}}&secretKey={{aws.secret.key}}&region={{aws.region}}&operation=listObjects")
+                    .to("aws2-s3://{{bucket.name}}?accessKey={{aws.access.key}}&secretKey={{aws.secret.key}}&region={{aws.region}}&operation=listObjects")
                 // Send to SQS
-                .choice().when(simple("{{idaas.awsSQS}}"))
-                // SQS Specifics
-                .to("aws2-sqs://testhealthcare")
+                .choice().when(simple("{{idaas.awsSQS}}?accessKey={{aws.access.key}}&secretKey={{aws.secret.key}}&region={{aws.region}}"))
+                    // SQS Specifics
+                    .to("aws2-sqs://testhealthcare")
                 // Send to SNS
-                .choice().when(simple("{{idaas.awsSNS}}"))
-                // SNS Specifics
-                .setHeader(SnsConstants.SUBJECT,simple("iOT Data Received"))
-                .setHeader(SnsConstants.MESSAGE_ID,simple("${exchangeId}"))
-                .to(getAWSConfig("aws2-sns://TestSNS?"))
+                .choice().when(simple("{{idaas.awsSNS}}?accessKey={{aws.access.key}}&secretKey={{aws.secret.key}}&region={{aws.region}}"))
+                    .setHeader(SnsConstants.SUBJECT,simple("iOT Data Received"))
+                    .setHeader(SnsConstants.MESSAGE_ID,simple("${exchangeId}"))
+                    .to("aws2-sns://TestSNS?")
                 // Send to SES
-                .choice().when(simple("{{idaas.awsSES}}"))
-                // SES
-                .setHeader(SesConstants.SUBJECT, simple("New Published Data to AWS for iDaaS-Connect-Cloud"))
-                .setHeader(SesConstants.TO, constant(Collections.singletonList("alscott@redhat.com")))
-                .setBody(simple("Data was received on ${date:now:yyyy-MM-dd} at ${date:now:HH:mm:ss:SSS}."))
-                .to("aws2-ses://alscott@redhat.com?")
+                .choice().when(simple("{{idaas.awsSES}}?accessKey={{aws.access.key}}&secretKey={{aws.secret.key}}&region={{aws.region}}"))
+                    .setHeader(SesConstants.SUBJECT, simple("New Published Data to AWS for iDaaS-Connect-Cloud"))
+                    .setHeader(SesConstants.TO, constant(Collections.singletonList("alscott@redhat.com")))
+                    .setBody(simple("Data was received on ${date:now:yyyy-MM-dd} at ${date:now:HH:mm:ss:SSS}."))
+                    .to("aws2-ses://alscott@redhat.com?")
                 // Send to Kinesis
-                .choice().when(simple("{{idaas.awsKinesis}}"))
-                // Kinesis
-                .setHeader(KinesisConstants.PARTITION_KEY,simple("Shard1"))
-                //.to(getAWSConfig("aws2-kinesis://testhealthcarekinesisstream?"))
-                .to("aws2-kinesis://testhealthcarekinesisstream?exchangePattern=InOnly")
+                .choice().when(simple("{{idaas.awsKinesis}}?accessKey={{aws.access.key}}&secretKey={{aws.secret.key}}&region={{aws.region}}"))
+                    .setHeader(KinesisConstants.PARTITION_KEY,simple("Shard1"))
+                    //.to(getAWSConfig("aws2-kinesis://testhealthcarekinesisstream?"))
+                    .to("aws2-kinesis://testhealthcarekinesisstream?exchangePattern=InOnly")
+                // Send to AMQ
+                //.choice().when(simple("{{idaas.awsMQ}}"))
+                //.to(ExchangePattern.InOnly, "amqp:topic:myHealthcareTopic?connectionFactory=#jmsConnectionFactory")
+                //.to(ExchangePattern.InOnly, "amqp:queue:myHealthcareQueue?connectionFactory=#jmsConnectionFactory")
                 .endChoice()
         ;
 
