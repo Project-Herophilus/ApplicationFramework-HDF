@@ -14,141 +14,155 @@
     </properties>
 
     <dependencyManagement>
-        <dependencies>
-           <dependency>
-                <groupId>org.jboss.redhat-fuse</groupId>
-                <artifactId>fuse-springboot-bom</artifactId>
-                <version>${fuse.bom.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <!-- Spring Boot -->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <exclusions>
-                    <exclusion>
-                        <artifactId>spring-boot-starter-tomcat</artifactId>
-                        <groupId>org.springframework.boot</groupId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-undertow</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-actuator</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-spring-boot-starter</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-micrometer-starter</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-aws</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-servlet</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-kafka</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-http</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-micrometer</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>io.micrometer</groupId>
-                <artifactId>micrometer-registry-prometheus</artifactId>
-                <scope>runtime</scope>
-            </dependency>
-            <!-- HL7 HAPI Specific Camel Support Libraries-->
-            <dependency>
-                <groupId>ca.uhn.hapi</groupId>
-                <artifactId>hapi-structures-v21</artifactId>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi</groupId>
-                <artifactId>hapi-structures-v22</artifactId>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi</groupId>
-                <artifactId>hapi-structures-v23</artifactId>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi</groupId>
-                <artifactId>hapi-structures-v231</artifactId>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi</groupId>
-                <artifactId>hapi-structures-v24</artifactId>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi</groupId>
-                <artifactId>hapi-structures-v25</artifactId>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi</groupId>
-                <artifactId>hapi-structures-v251</artifactId>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>ca.uhn.hapi</groupId>
-                <artifactId>hapi-structures-v26</artifactId>
-                <optional>true</optional>
-            </dependency>
-            <!-- HAPI FHIR for CCDA Conversions -->
-            <!-- https://mvnrepository.com/artifact/ca.uhn.hapi.fhir/hapi-fhir-structures-r4 -->
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>hapi-fhir-structures-r4</artifactId>
-            </dependency>
-            <!-- https://mvnrepository.com/artifact/ca.uhn.hapi.fhir/hapi-fhir-base -->
-            <dependency>
-                <groupId>ca.uhn.hapi.fhir</groupId>
-                <artifactId>hapi-fhir-base</artifactId>
-            </dependency>
-            <!-- iDaaS Event Builder Repo or Local-->
-            <dependency>
-                <groupId>io.connectedhealth-idaas</groupId>
-                <artifactId>idaas-eventbuilder</artifactId>
-            </dependency>
-           <!-- JDK 11 based implementations <dependency> <groupId>io.github.linuxforhealth</groupId> <artifactId>hl7v2-fhir-converter</artifactId> <version>1.0.18</version> </dependency>-->
-            <!--Logs -->
-            <dependency>
-                <groupId>ch.qos.logback.contrib</groupId>
-                <artifactId>logback-jackson</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback.contrib</groupId>
-                <artifactId>logback-json-classic</artifactId>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-amqp</artifactId>
-                <version>3.14.0</version>
-            </dependency>
-        </dependencies>
+    <dependencies>
+        <dependency>
+            <groupId>org.jboss.redhat-fuse</groupId>
+            <artifactId>fuse-springboot-bom</artifactId>
+            <version>${fuse.bom.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
     </dependencyManagement>
-
+    <dependencies>
+       <!-- Spring Boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                    <groupId>org.springframework.boot</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-micrometer-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-aws</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-servlet</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-http</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-micrometer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-registry-prometheus</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- HL7 HAPI Specific Camel Support Libraries-->
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v21</artifactId>
+            <version>2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v22</artifactId>
+            <version>2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v23</artifactId>
+            <version>2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v231</artifactId>
+            <version>2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v24</artifactId>
+            <version>2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v25</artifactId>
+            <version>2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v251</artifactId>
+            <version>2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi</groupId>
+            <artifactId>hapi-structures-v26</artifactId>
+            <version>2.3</version>
+            <optional>true</optional>
+        </dependency>
+        <!-- HAPI FHIR for CCDA Conversions -->
+        <!-- https://mvnrepository.com/artifact/ca.uhn.hapi.fhir/hapi-fhir-structures-r4 -->
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-structures-r4</artifactId>
+            <version>5.7.2</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/ca.uhn.hapi.fhir/hapi-fhir-base -->
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-base</artifactId>
+            <version>5.7.2</version>
+        </dependency>
+        <!-- iDaaS Event Builder Repo or Local-->
+        <dependency>
+            <groupId>io.connectedhealth-idaas</groupId>
+            <artifactId>idaas-eventbuilder</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <!-- JDK 11 based implementations <dependency> <groupId>io.github.linuxforhealth</groupId> <artifactId>hl7v2-fhir-converter</artifactId> <version>1.0.18</version> </dependency>-->
+        <!--Logs -->
+        <dependency>
+            <groupId>ch.qos.logback.contrib</groupId>
+            <artifactId>logback-jackson</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>ch.qos.logback.contrib</groupId>
+            <artifactId>logback-json-classic</artifactId>
+            <version>0.1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-amqp</artifactId>
+            <version>3.14.0</version>
+        </dependency>
+    </dependencies>
     <profiles>
         <profile>
             <id>release</id>
@@ -156,10 +170,10 @@
     </profiles>
 
     <repositories>
-        <repository>
+       <repository>
             <id>redhat-ga-repository</id>
             <url>https://maven.repository.redhat.com/ga</url>
-            <releases />
+            <releases/>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
@@ -167,7 +181,7 @@
         <repository>
             <id>redhat-ea-repository</id>
             <url>https://maven.repository.redhat.com/earlyaccess/all</url>
-            <releases />
+            <releases/>
             <snapshots>
                 <enabled>false</enabled>
             </snapshots>
