@@ -73,6 +73,10 @@
             <artifactId>camel-micrometer</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.apache.camel</groupId>
+            <artifactId>camel-amqp</artifactId>
+        </dependency>
+        <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
             <scope>runtime</scope>
@@ -157,11 +161,6 @@
             <artifactId>logback-json-classic</artifactId>
             <version>0.1.5</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.camel</groupId>
-            <artifactId>camel-amqp</artifactId>
-            <version>3.14.0</version>
-        </dependency>
     </dependencies>
     <profiles>
         <profile>
@@ -228,12 +227,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
                 <configuration>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.jboss.redhat-fuse</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${fuse.bom.version}</version>
                 <configuration>
                     <executable>true</executable>
                     <mainClass>io.connectedhealth_dream.cloud.Application</mainClass>
