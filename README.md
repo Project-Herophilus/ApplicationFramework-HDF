@@ -19,7 +19,7 @@ Specific accelerators that are created using Camel.
 |:----------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------| 
 | [Camel DataTier](https://github.com/Project-Herophilus/ApplicationFramework-HDF/tree/main/camel-datatier)                   | Camel Based application that enables data tier processing for several common enterprise data platforms such as DataBricks, MongoDB and SnowFlake. |
 | [Camel DMN Routing](https://github.com/Project-Herophilus/ApplicationFramework-HDF/tree/main/Camel-DMN-DataRouting) | Camel based application that uses DMN based rules to dynamically route data.                                                                      |
-| [Camel-PublicCloud](https://github.com/Project-Herophilus/ApplicationFramework-HDF/tree/main/Camel-PublicCloud)     | Camel based assets that work with supporting data to all the common Camel public cloud connectors.                                                |
+| [Camel-PublicCloud](https://github.com/Project-Herophilus/ApplicationFramework-HDF/tree/main/camel-publiccloud)     | Camel based assets that work with supporting data to all the common Camel public cloud connectors.                                                |
 | [CamelK-Cerner](https://github.com/Project-Herophilus/ApplicationFramework-HDF/tree/main/CamelK-Cerner)              | Camel based specific Assets that work with Cerner EHR platform and their APIs.                                                                    |
 
 ## Java Based Accelerators
