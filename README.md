@@ -1,6 +1,6 @@
-# iDaaS-DREaM
-iDaaS-DREaM (Data Real Time Assets) stands for is intended to be a consistent place for data driven assets that 
-can be used for a variety of needs. This repository has several vastly different and unique technologies that are all used
+# Application Framework for HDF (Healthcare Data Foundation)
+Application Framework for HDF is intended to enable a consistent way for data driven assets that 
+can be used for a variety of needs with the HDF (Healthcare Data Foundation) event driven architecture. This repository has several vastly different and unique technologies that are all used
 for one purpose, to provide innovative ways to process and leverage data.
 
 Always remember our cloud first approach to everything we do: <br/>
