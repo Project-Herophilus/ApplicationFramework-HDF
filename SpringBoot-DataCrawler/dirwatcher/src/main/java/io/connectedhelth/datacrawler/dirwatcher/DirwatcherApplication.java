@@ -9,6 +9,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 // Import
 import io.connectedhelth.datacrawler.dirwatcher.repository.PlatformSettingsRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 /*
  *  Repository with Persistence - https://www.javaguides.net/2020/02/spring-boot-commandlinerunner-example.html
@@ -35,6 +38,8 @@ public class DirwatcherApplication implements CommandLineRunner {
     @Override
     public void run(String... arg0) throws Exception {
         System.out.println("Started Directory Watcher on: "+java.time.LocalDate.now()+ " at: "+java.time.LocalTime.now());
+
+
     }
 
 }
