@@ -1,4 +1,4 @@
-package io.connectedhelth.datacrawler.dirwatcher;
+package io.connectedhelth.datacrawler.datawatcher;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 // Import
-import io.connectedhelth.datacrawler.dirwatcher.repository.PlatformSettingsRepository;
+import io.connectedhelth.datacrawler.datawatcher.repository.PlatformSettingsRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
@@ -21,15 +21,15 @@ import java.util.List;
  */
 
 @SpringBootApplication
-public class DirwatcherApplication implements CommandLineRunner {
+public class DatawatcherApplication implements CommandLineRunner {
 
     public static void main(String[] args)
     {
-        SpringApplication.run(DirwatcherApplication.class, args);
+        SpringApplication.run(DatawatcherApplication.class, args);
     }
 
     // Instantiate Logger
-    private static final Logger logger = LoggerFactory.getLogger(DirwatcherApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(DatawatcherApplication.class);
 
     //Repository Loader
     @Autowired
@@ -38,7 +38,6 @@ public class DirwatcherApplication implements CommandLineRunner {
     @Override
     public void run(String... arg0) throws Exception {
         System.out.println("Started Directory Watcher on: "+java.time.LocalDate.now()+ " at: "+java.time.LocalTime.now());
-
 
     }
 

@@ -1,9 +1,10 @@
-package io.connectedhelth.datacrawler.dirwatcher.repository;
+package io.connectedhelth.datacrawler.datawatcher.repository;
 
-import io.connectedhelth.datacrawler.dirwatcher.model.PlatformSettingsEntity;
+import io.connectedhelth.datacrawler.datawatcher.model.PlatformSettingsEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-
+// Pagination
+//import org.springframework.data.jpa.repository.PaginationAndSortingRepository;
 import java.util.List;
 
 

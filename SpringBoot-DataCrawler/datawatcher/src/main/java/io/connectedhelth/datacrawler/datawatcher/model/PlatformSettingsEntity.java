@@ -1,4 +1,4 @@
-package io.connectedhelth.datacrawler.dirwatcher.model;
+package io.connectedhelth.datacrawler.datawatcher.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
